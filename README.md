@@ -35,3 +35,5 @@ Intger intValue = Intger.valueOf(request.getParameter("data"));
 PropertyEditor는 동시성 문제가 있어서 타입을 변환할 때 마다 객체를 계속 생성해야 하는 단점이 있다.
 지금은 Converter의 등장으로 해당 문제들이 해결되었고, 기능 확장이 필요하면 Converter를 사용하면 된다.
 
+# /25-02-11
+## 타입 컨버터 - Converter 1
