@@ -54,3 +54,14 @@ PropertyEditor는 동시성 문제가 있어서 타입을 변환할 때 마다 �
 물론 컨버전 서비스를 등록하는 부분과 사용하는 부분을 분리하고 의존관계 주입을 사용해야 한다.
 
 ### 인터페이스 분리 원칙 - ISP(Interface Segregation Principal)
+
+# /25-02-15
+## 스프링에 Converter 적용하기
+스프링은 내부에서 ConversionService를 제공한다. 우리는 WebMvcConfigurer가 제공하는 addFormatters()를 사용해서 추가하고 싶은 컨버터를 등록하면 된다.
+이렇게 하면 스프링은 내부에서 사용하는 ConversionService에 컨버터를 추가해준다.
+
+### 처리 과정
+@RequestParam은 @RequestParam을 처리하는 ArgumentResolver인 RequestParamMethodArgumentResolver에서 ConversionService를 사용해서 타입을 변환한다.
+부모 클래스와 다양한 외부 클래스를 호출하는 등 복잡한 내부 과정을 거치기 때문에 대략 이렇게 처리되는 것으로 이해해도 충분하다.
+만약 더 깊이있게 확인하고 싶으면 IpPortConverter에 디버그 브레이크 포인트를 걸어서 확인해보자.
+
