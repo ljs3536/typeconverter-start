@@ -98,3 +98,14 @@ Converter는 입력과 출력 타입에 제한이 없는 범용 타입 변환 �
 ### 포맷터 - Formatter 만들기
 포맷터는 객체를 문자로 변경하고, 문자를 객체로 변경하는 두 가지 기능을 모두 수행한다.
 
+# /25-02-18
+## 포맷터를 지원하는 컨버전 서비스
+컨버전 서비스에는 컨버터만 등록할 수 있고, 포맷터를 등록할 수는 없다.
+그런데 생각해보면 포맷터는 객체 -> 문자, 문자 -> 객체로 변환하는 특별한 컨버터일 뿐이다.
+포맷터를 지원하는 컨버전 서비스를 사용하면 컨버전 서비스에 포맷터를 추가할 수 있다.
+내부에서 어댑터 패턴을 사용해서 Formatter가 Converter처럼 동작하도록 지원한다.
+
+### DefaultFormattingConversionService 상속 관계
+FormattingConversionService는 ConversionService 관련 기능을 상속받기 때문에 결과적으로 컨버터도 포맷터도 모두 등록할 수 있다.
+그리고 사용할 때는 ConversionService가 제공하는 convert를 사용하면 된다.
+추가로 스프링 부트는 DefaultFormattingConversionService를 상속받은 WebConversionService를 내부에서 사용한다.
