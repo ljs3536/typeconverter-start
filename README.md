@@ -113,3 +113,10 @@ FormattingConversionService는 ConversionService 관련 기능을 상속받기 �
 # /25-02-19
 ## 포맷터 적용하기
 
+# /25-02-20
+## 스프링이 제공하는 기본 포맷터
+- @NumberFormat : 숫자 관련 지정 포맷터 사용
+- @DateTimeFormat : 날짜 관련 형식 지정 포맷터 사용
+
+
+
